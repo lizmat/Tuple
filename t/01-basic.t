@@ -3,7 +3,7 @@ use Test;
 
 use Tuple;
 
-plan 17;
+plan 19;
 
 my @a is Tuple = ^10;
 
@@ -15,6 +15,12 @@ is $c.WHICH, @a.WHICH, 'are $c and @a the same value type';
 
 my $d = Tuple.new(^10);
 is $d.WHICH, @a.WHICH, 'are $d and @a the same value type';
+
+my $e = Tuple.new(@a);
+is $e.WHICH, @a.WHICH, 'are $e and @a the same value type';
+
+my $f = tuple(@a);
+is $f.WHICH, @a.WHICH, 'are $f and @a the same value type';
 
 dies-ok { @a = 4,5,6 },  'can we not re-assign to a tuple';
 dies-ok { @a[0] = 42 },  'can we not assign to a tuple element';

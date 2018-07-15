@@ -2,5 +2,10 @@ Revision history for Tuple
 
 {{$NEXT}}
 
+0.0.2  2018-07-15T19:37:22+02:00
+    - Made sure that Tuple's are also Iterable
+    - Added candidates for directly handling a single Iterable (for performance)
+    - Fixed erroneous "is Positional"
+
 0.0.1  2018-07-15T16:34:27+02:00
     - Initial version
