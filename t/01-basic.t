@@ -3,7 +3,7 @@ use Test;
 
 use Tuple;
 
-plan 14;
+plan 17;
 
 my @a is Tuple = ^10;
 
@@ -25,5 +25,12 @@ for <
 > -> $method {
     dies-ok { @a."$method"() }, "does calling .$method die";
 }
+
+dies-ok { $_ = 42 for @a },
+  'are iterated values also immutable';
+dies-ok { .value = 42 for @a.pairs },
+  'are iterated pairs also immutable';
+dies-ok { for @a.kv -> \k, \v { v = 42 } },
+  'are iterated kv also immutable';
 
 # vim: ft=perl6 expandtab sw=4
