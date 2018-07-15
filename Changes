@@ -2,6 +2,9 @@ Revision history for Tuple
 
 {{$NEXT}}
 
+0.0.3  2018-07-15T22:26:12+02:00
+    - Marked "tuple" as "is nodal" so that meta-ops work on it correctly
+
 0.0.2  2018-07-15T19:37:22+02:00
     - Made sure that Tuple's are also Iterable
     - Added candidates for directly handling a single Iterable (for performance)
