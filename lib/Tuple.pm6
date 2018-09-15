@@ -2,11 +2,11 @@ use v6.c;
 
 # Since this module is intended to be part of the Rakudo core in the
 # foreseeable future, it is implemented how a core module would be
-# implemented, namely freely using nap:: ops when they seem to be
+# implemented, namely freely using nqp:: ops when they seem to be
 # necessary for optimal performance (as of 2016.07).
 use nqp;
 
-class Tuple:ver<0.0.3>:auth<cpan:ELIZABETH>
+class Tuple:ver<0.0.4>:auth<cpan:ELIZABETH>
   is IterationBuffer   # get some low level functionality for free
   does Positional      # so we can bind into arrays
   does Iterable        # so it iterates automagically
@@ -66,29 +66,28 @@ class Tuple:ver<0.0.3>:auth<cpan:ELIZABETH>
         )
     }
 
-    method iterator(Tuple:D:) {
-        class :: does Iterator {
-            has Tuple $!tuple;
-            has int $!i;
-            has int $!elems;
+    class Iterate does Iterator {
+        has Tuple $!tuple;
+        has int $!i;
+        has int $!elems;
 
-            method !SET-SELF(\tuple) {
-                $!tuple := tuple;
-                $!i      = -1;
-                $!elems  = nqp::elems(tuple);
-                self
-            }
-            method new(\tuple) { nqp::create(self)!SET-SELF(tuple) }
+        method !SET-SELF(\tuple) {
+            $!tuple := tuple;
+            $!i      = -1;
+            $!elems  = nqp::elems(tuple);
+            self
+        }
+        method new(\tuple) { nqp::create(self)!SET-SELF(tuple) }
 
-            method pull-one() is raw {
-                nqp::if(
-                  nqp::islt_i(($!i = nqp::add_i($!i,1)),$!elems),
-                  nqp::atpos($!tuple,$!i),
-                  IterationEnd
-                )
-            }
-        }.new(self)
+        method pull-one() is raw {
+            nqp::if(
+              nqp::islt_i(($!i = nqp::add_i($!i,1)),$!elems),
+              nqp::atpos($!tuple,$!i),
+              IterationEnd
+            )
+        }
     }
+    method iterator(Tuple:D:) { Iterate.new(self) }
 
     multi method perl(Tuple:D:) {
         'tuple'

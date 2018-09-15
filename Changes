@@ -2,6 +2,9 @@ Revision history for Tuple
 
 {{$NEXT}}
 
+0.0.4  2018-09-15T10:12:54+02:00
+    - Don't use an anoymous class for iterating for better optimizability
+
 0.0.3  2018-07-15T22:26:12+02:00
     - Marked "tuple" as "is nodal" so that meta-ops work on it correctly
 
