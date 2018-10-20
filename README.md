@@ -9,7 +9,7 @@ SYNOPSIS
 ========
 
     use Tuple;
-     
+
     my @a is Tuple = ^10;  # initialization follows single-argument semantics
     my @b is Tuple = ^10;
 
