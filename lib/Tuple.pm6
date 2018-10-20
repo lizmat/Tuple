@@ -48,9 +48,9 @@ class Tuple:ver<0.0.4>:auth<cpan:ELIZABETH>
     multi method new(Tuple: +@args) {
         nqp::create(self)!SET-SELF: @args.iterator
     }
-    method STORE(Tuple: \to_store, :$initialize) {
+    method STORE(Tuple: \to_store, :initialize(:$INITIALIZE)) {
         nqp::if(
-          $initialize,
+          $INITIALIZE,
           self!SET-SELF(to_store.iterator),
           X::Assignment::RO.new(value => self).throw
         )
@@ -117,7 +117,7 @@ Tuple - provide an immutable List value type
 =head1 SYNOPSIS
 
     use Tuple;
- 
+
     my @a is Tuple = ^10;  # initialization follows single-argument semantics
     my @b is Tuple = ^10;
 
