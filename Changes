@@ -2,6 +2,10 @@ Revision history for Tuple
 
 {{$NEXT}}
 
+0.0.6  2020-06-12T22:00:23+02:00
+    - Make sure we always return containerized, otherwise the values of
+      a tuple will be slipped into QuantHashes.  Spotted by 0racle.
+
 0.0.5  2018-10-20T13:51:03+02:00
     - Account for STORE initialize -> INITIALIZE change
 

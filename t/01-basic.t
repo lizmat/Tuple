@@ -3,7 +3,7 @@ use Test;
 
 use Tuple;
 
-plan 19;
+plan 21;
 
 my @a is Tuple = ^10;
 
@@ -31,6 +31,10 @@ for <
 > -> $method {
     dies-ok { @a."$method"() }, "does calling .$method die";
 }
+
+my %s is Set = tuple(^2), tuple(^2);
+is %s.elems, 1, 'did we get 1 tuple with "is Set"';
+is set( tuple(^2), tuple(^2) ).elems, 1, 'did we get 1 tuple "set()"';
 
 dies-ok { $_ = 42 for @a },
   'are iterated values also immutable';

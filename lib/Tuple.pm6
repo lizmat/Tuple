@@ -6,7 +6,7 @@ use v6.c;
 # necessary for optimal performance (as of 2016.07).
 use nqp;
 
-class Tuple:ver<0.0.5>:auth<cpan:ELIZABETH>
+class Tuple:ver<0.0.6>:auth<cpan:ELIZABETH>
   is IterationBuffer   # get some low level functionality for free
   does Positional      # so we can bind into arrays
   does Iterable        # so it iterates automagically
@@ -49,21 +49,20 @@ class Tuple:ver<0.0.5>:auth<cpan:ELIZABETH>
         nqp::create(self)!SET-SELF: @args.iterator
     }
     method STORE(Tuple: \to_store, :initialize(:$INITIALIZE)) {
-        nqp::if(
-          $INITIALIZE,
-          self!SET-SELF(to_store.iterator),
-          X::Assignment::RO.new(value => self).throw
-        )
+        $INITIALIZE
+          ?? self!SET-SELF(to_store.iterator)
+          !! X::Assignment::RO.new(value => self).throw
     }
 
     method !SET-SELF(\iterator) {
-        nqp::stmts(
-          nqp::until(
-            nqp::eqaddr((my $pulled := iterator.pull-one),IterationEnd),
-            nqp::push(self, nqp::decont($pulled))
-          ),
-          self
-        )
+        nqp::until(
+          nqp::eqaddr((my \pulled := iterator.pull-one),IterationEnd),
+          nqp::push(self, nqp::decont(pulled))
+        );
+
+        # make sure we containerize it to prevent it from being slipped
+        # into a QuantHash
+        my $tuple = self
     }
 
     class Iterate does Iterator {
