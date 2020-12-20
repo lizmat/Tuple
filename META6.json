@@ -1,22 +1,26 @@
 {
-  "auth" : "cpan:ELIZABETH",
-  "authors" : [
+  "auth": "cpan:ELIZABETH",
+  "authors": [
     "Elizabeth Mattijsen"
   ],
-  "build-depends" : [ ],
-  "depends" : [ ],
-  "description" : "provide an immutable List value type",
-  "license" : "Artistic-2.0",
-  "name" : "Tuple",
-  "perl" : "6.c",
-  "provides" : {
-    "Tuple" : "lib/Tuple.pm6"
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "provide an immutable List value type",
+  "license": "Artistic-2.0",
+  "name": "Tuple",
+  "perl": "6.c",
+  "provides": {
+    "Tuple": "lib/Tuple.pm6"
   },
-  "resources" : [ ],
-  "source-url" : "https://github.com/lizmat/Tuple",
-  "tags" : [
+  "resources": [
+  ],
+  "source-url": "https://github.com/lizmat/Tuple",
+  "tags": [
     "UTILS"
   ],
-  "test-depends" : [ ],
-  "version" : "0.0.6"
+  "test-depends": [
+  ],
+  "version": "0.0.7"
 }

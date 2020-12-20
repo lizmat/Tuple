@@ -2,6 +2,10 @@ Revision history for Tuple
 
 {{$NEXT}}
 
+0.0.7  2020-12-20T11:00:22+01:00
+    - Move to highest possible Raku version
+    - Update copyright year
+
 0.0.6  2020-06-12T22:00:23+02:00
     - Make sure we always return containerized, otherwise the values of
       a tuple will be slipped into QuantHashes.  Spotted by 0racle.

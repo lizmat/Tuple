@@ -1,4 +1,4 @@
-use v6.c;
+use v6.*;
 
 # Since this module is intended to be part of the Rakudo core in the
 # foreseeable future, it is implemented how a core module would be
@@ -6,7 +6,7 @@ use v6.c;
 # necessary for optimal performance (as of 2016.07).
 use nqp;
 
-class Tuple:ver<0.0.6>:auth<cpan:ELIZABETH>
+class Tuple:ver<0.0.7>:auth<cpan:ELIZABETH>
   is IterationBuffer   # get some low level functionality for free
   does Positional      # so we can bind into arrays
   does Iterable        # so it iterates automagically
@@ -126,7 +126,7 @@ Tuple - provide an immutable List value type
 
 =head1 DESCRIPTION
 
-Perl 6 provides a semi-immutable Positional datatype: List.  A C<List> can
+Raku provides a semi-immutable Positional datatype: List.  A C<List> can
 not have any elements added or removed from it.  However, since a list B<can>
 contain containers of which the value can be changed, it is not a value type.
 So you cannot use Lists in data structures such as C<Set>s, because each List
@@ -146,10 +146,10 @@ Comments and Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018,2020 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
 =end pod
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

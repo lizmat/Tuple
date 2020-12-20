@@ -1,4 +1,4 @@
-use v6.c;
+use v6.d;
 use Test;
 
 use Tuple;
@@ -43,4 +43,4 @@ dies-ok { .value = 42 for @a.pairs },
 dies-ok { for @a.kv -> \k, \v { v = 42 } },
   'are iterated kv also immutable';
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4
