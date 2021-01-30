@@ -2,6 +2,13 @@ Revision history for Tuple
 
 {{$NEXT}}
 
+0.0.8  2021-01-30T12:03:13+01:00
+    - Introduce own .raku method, deprecate .perl method
+    - Make .gist / .Str create useful representations
+    - Make sure .WHICH only works on instantiated objects
+    - Make sure we keep container in SET-SELF
+    - Update copyright year
+
 0.0.7  2020-12-20T11:00:22+01:00
     - Move to highest possible Raku version
     - Update copyright year

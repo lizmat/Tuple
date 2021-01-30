@@ -6,14 +6,14 @@ use v6.*;
 # necessary for optimal performance (as of 2016.07).
 use nqp;
 
-class Tuple:ver<0.0.7>:auth<cpan:ELIZABETH>
+class Tuple:ver<0.0.8>:auth<cpan:ELIZABETH>
   is IterationBuffer   # get some low level functionality for free
   does Positional      # so we can bind into arrays
   does Iterable        # so it iterates automagically
   is repr('VMArray')   # needed to get nqp:: ops to work on self
 {
 
-    method WHICH(Tuple:) {
+    multi method WHICH(Tuple:D:) {
         nqp::box_s(
           nqp::concat(
             nqp::if(
@@ -48,13 +48,13 @@ class Tuple:ver<0.0.7>:auth<cpan:ELIZABETH>
     multi method new(Tuple: +@args) {
         nqp::create(self)!SET-SELF: @args.iterator
     }
-    method STORE(Tuple: \to_store, :initialize(:$INITIALIZE)) {
+    method STORE(Tuple:D: \to_store, :initialize(:$INITIALIZE)) {
         $INITIALIZE
           ?? self!SET-SELF(to_store.iterator)
           !! X::Assignment::RO.new(value => self).throw
     }
 
-    method !SET-SELF(\iterator) {
+    method !SET-SELF(\iterator) is raw {
         nqp::until(
           nqp::eqaddr((my \pulled := iterator.pull-one),IterationEnd),
           nqp::push(self, nqp::decont(pulled))
@@ -88,9 +88,25 @@ class Tuple:ver<0.0.7>:auth<cpan:ELIZABETH>
     }
     method iterator(Tuple:D:) { Iterate.new(self) }
 
-    multi method perl(Tuple:D:) {
-        'tuple'
-          ~ nqp::p6bindattrinvres(nqp::create(List),List,'$!reified',self).perl
+    multi method perl(Tuple:D:) is DEPRECATED("raku") {
+        nqp::concat(
+          'tuple',
+          nqp::p6bindattrinvres(nqp::create(List),List,'$!reified',self).raku
+        )
+    }
+
+    # set up stringification forms
+    multi method raku(Tuple:D:) {
+        nqp::concat(
+          'tuple',
+          nqp::p6bindattrinvres(nqp::create(List),List,'$!reified',self).raku
+        )
+    }
+    multi method Str(Tuple:D:) {
+        nqp::concat(
+          'tuple',
+          nqp::p6bindattrinvres(nqp::create(List),List,'$!reified',self).raku
+        )
     }
 
     # methods that are not allowed on immutable things
@@ -101,6 +117,7 @@ class Tuple:ver<0.0.7>:auth<cpan:ELIZABETH>
             X::Immutable.new(:$method, typename => self.^name).throw
         }
     }
+
 }
 
 proto sub tuple(|) is export is nodal {*}
@@ -146,7 +163,7 @@ Comments and Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018,2020 Elizabeth Mattijsen
+Copyright 2018,2020,2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
