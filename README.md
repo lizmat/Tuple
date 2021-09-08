@@ -25,14 +25,14 @@ Since Lists are used very heavily internally with the current semantics, it is a
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Tuple . Comments and Pull Requests are welcome.
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018,2020,2021 Elizabeth Mattijsen
+Copyright 2018, 2020, 2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

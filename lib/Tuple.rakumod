@@ -6,7 +6,7 @@ use v6.*;
 # necessary for optimal performance (as of 2016.07).
 use nqp;
 
-class Tuple:ver<0.0.8>:auth<cpan:ELIZABETH>
+class Tuple:ver<0.0.9>:auth<zef:lizmat>
   is IterationBuffer   # get some low level functionality for free
   does Positional      # so we can bind into arrays
   does Iterable        # so it iterates automagically
@@ -156,14 +156,14 @@ introduction of the C<Tuple> data type.
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Tuple .
 Comments and Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018,2020,2021 Elizabeth Mattijsen
+Copyright 2018, 2020, 2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
