@@ -2,6 +2,12 @@ Revision history for Tuple
 
 {{$NEXT}}
 
+0.0.10  2022-01-09T13:02:09+01:00
+    - Make Tuple a child class of the new ValueList interface
+    - Move to new file extensions
+    - Provide slightly simpler .gist output
+    - Update copyright year
+
 0.0.9  2021-09-08T14:11:40+02:00
     - Change file extension to .rakumod
     - Migrate to zef ecosystem
