@@ -1,9 +1,10 @@
 use Test;
 use Tuple;
 
-plan 23;
+plan 26;
 
 my @a is Tuple = ^10;
+is-deeply @a.Bool, True, 'a Tuple with elements is True';
 
 my @b is Tuple = ^10;
 is @b.WHICH, @a.WHICH, 'are @b and @a the same value type';
@@ -43,5 +44,11 @@ dies-ok { .value = 42 for @a.pairs },
   'are iterated pairs also immutable';
 dies-ok { for @a.kv -> \k, \v { v = 42 } },
   'are iterated kv also immutable';
+
+my @g is Tuple;
+is-deeply @g.Bool, False, 'an empty Tuple @g is False';
+
+my $h = Tuple.new;
+is-deeply $h.Bool, False, 'an empty Tuple $h is False';
 
 # vim: expandtab shiftwidth=4

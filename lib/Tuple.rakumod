@@ -1,6 +1,6 @@
-use ValueList:ver<0.0.1>:auth<zef:lizmat>;
+use ValueList:ver<0.0.3>:auth<zef:lizmat>;
 
-class Tuple:ver<0.0.10>:auth<zef:lizmat> is repr('VMArray') is ValueList {
+class Tuple is repr('VMArray') is ValueList {
     multi method gist(Tuple:D:) { 'Tuple.new' ~ callsame }
 }
 
@@ -57,7 +57,7 @@ Comments and Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2020, 2021, 2022 Elizabeth Mattijsen
+Copyright 2018, 2020, 2021, 2022, 2024 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

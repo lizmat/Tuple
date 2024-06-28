@@ -6,7 +6,7 @@
   "build-depends": [
   ],
   "depends": [
-    "ValueList:ver<0.0.1>:auth<zef:lizmat>"
+    "ValueList:ver<0.0.3>:auth<zef:lizmat>"
   ],
   "description": "provide an immutable List value type",
   "license": "Artistic-2.0",
@@ -17,11 +17,11 @@
   },
   "resources": [
   ],
-  "source-url": "https://github.com/lizmat/Tuple",
+  "source-url": "https://github.com/lizmat/Tuple.git",
   "tags": [
     "UTILS"
   ],
   "test-depends": [
   ],
-  "version": "0.0.10"
+  "version": "0.0.11"
 }

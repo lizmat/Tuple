@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/Tuple/actions/workflows/linux.yml/badge.svg)](https://github.com/lizmat/Tuple/actions) [![Actions Status](https://github.com/lizmat/Tuple/actions/workflows/macos.yml/badge.svg)](https://github.com/lizmat/Tuple/actions) [![Actions Status](https://github.com/lizmat/Tuple/actions/workflows/windows.yml/badge.svg)](https://github.com/lizmat/Tuple/actions)
+
 NAME
 ====
 
@@ -39,7 +41,7 @@ Source can be located at: https://github.com/lizmat/Tuple . Comments and Pull Re
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018, 2020, 2021, 2022 Elizabeth Mattijsen
+Copyright 2018, 2020, 2021, 2022, 2024 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
