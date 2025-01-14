@@ -1,6 +1,8 @@
 Revision history for Tuple
 
 {{$NEXT}}
+
+0.0.12  2025-01-14T11:54:37+01:00
     - Fix dependency on ValueList properly
     - Update copyright year
 
