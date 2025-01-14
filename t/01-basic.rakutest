@@ -1,7 +1,7 @@
 use Test;
 use Tuple;
 
-plan 26;
+plan 27;
 
 my @a is Tuple = ^10;
 is-deeply @a.Bool, True, 'a Tuple with elements is True';
@@ -50,5 +50,8 @@ is-deeply @g.Bool, False, 'an empty Tuple @g is False';
 
 my $h = Tuple.new;
 is-deeply $h.Bool, False, 'an empty Tuple $h is False';
+
+my $i = Tuple.new(1,2,3);
+is-deeply $i, tuple(1,2,3), 'Tuple.new with args ok';
 
 # vim: expandtab shiftwidth=4

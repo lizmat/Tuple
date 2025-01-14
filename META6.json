@@ -6,7 +6,7 @@
   "build-depends": [
   ],
   "depends": [
-    "ValueList:ver<0.0.3>:auth<zef:lizmat>"
+    "ValueList:ver<0.0.4+>:auth<zef:lizmat>"
   ],
   "description": "provide an immutable List value type",
   "license": "Artistic-2.0",
